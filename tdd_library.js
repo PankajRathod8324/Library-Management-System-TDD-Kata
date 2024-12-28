@@ -22,7 +22,7 @@ class Library {
             throw new Error('Book not found');
         }
         if(!book.available) {
-            throw new Error('Book is not available');
+            throw new Error('The book is not available');
         }
         book.available = false;
     }

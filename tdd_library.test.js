@@ -50,4 +50,13 @@ describe('Library - Borrow Books', () => {
         library.borrowBook('8324');
         expect(library.books[0].available).toBe(false);
     });
-})
+
+    // It's Verifies that A User cannot borrow a book if it is not available
+    test('It should not allow a user to borrow a book if it is not available', () => {
+        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: 2000});
+        library.borrowBook('8324');
+        expect(() => {
+            library.borrowBook('8324');
+        }).toThrow('The book is not available');
+    });
+});
