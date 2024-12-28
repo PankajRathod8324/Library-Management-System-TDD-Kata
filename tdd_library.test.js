@@ -84,4 +84,4 @@ describe('Library - Return Books', () => {
         library.returnBook('8324');
         expect(library.books[0].available).toBe(true);
     });
-})
+});
