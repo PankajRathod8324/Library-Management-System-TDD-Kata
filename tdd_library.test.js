@@ -148,4 +148,10 @@ describe('Library - View Available Books', () => {
             { isbn: '8325', title: 'Book Y', author: 'Author Y', year: 2001, available: true, borrowedBy: null },
         ]);
     });
+
+    // It's Verifies that no errors occur if the library is empty
+    test('It should return an empty list if the library has no books', () => {
+        const availableBooks = library.viewAvailableBooks();
+        expect(availableBooks).toEqual([]);
+    });
 })
