@@ -109,3 +109,26 @@ describe('Library - Return Books', () => {
         }).toThrow('The book is not found.');
     });
 });
+
+// View Available Books
+describe('Library - View Available Books', () => {
+
+    let library;
+
+    beforeEach(() => {
+        library = new Library();
+    });
+
+    // It's Verifies that the library can display all available books
+    test('It should display all available books', () => {
+        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: 2000 });
+        library.addBook({ isbn: '8325', title: 'Book Y', author: 'Author Y', year: 2001 });
+        library.borrowBook('8324', 'user123');
+        const availableBooks = library.viewAvailableBooks();
+        expect(availableBooks).toEqual([
+            { isbn: '8325', title: 'Book Y', author: "Author Y", year: 2001, available: true, borrowedBy: null}
+        ]);
+    });
+
+    
+})
