@@ -84,4 +84,12 @@ describe('Library - Return Books', () => {
         library.returnBook('8324');
         expect(library.books[0].available).toBe(true);
     });
+
+    // It's Verifies that A User cannot return book that was not borrowed
+    test('It should not allow a user to return a book that was not borrowed', () => {
+        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: '2000'});
+        expect(() => {
+            library.returnBook('8324');
+        }).toThrow('The book is not currently borrowed.');
+    });
 });
