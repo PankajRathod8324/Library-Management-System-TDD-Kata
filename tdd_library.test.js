@@ -18,4 +18,12 @@ describe('Library - Add Books', () => {
         ]);
     });
 
+    // It's Verifies that User cannot allow to add a book with duplicate ISBN, title, author and publication year'
+    test('It should not allow to add a book with duplicate ISBN, title, author and publication year', () => {
+        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: 2000});
+        expect(() => {
+            library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: 2000});
+        }).toThrow('Book with these details are already exists.');
+    });
+
 });
