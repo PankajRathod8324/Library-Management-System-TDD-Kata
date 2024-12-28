@@ -57,14 +57,14 @@ describe('Library - Borrow Books', () => {
         library.borrowBook('8324');
         expect(() => {
             library.borrowBook('8324');
-        }).toThrow('The book is not available');
+        }).toThrow('The book is not available.');
     });
 
     // It's Verifies that A User cannot borrow a book that does not exists in the library
     test('It should not allow a user to borrow a book that does not exists in the library', () => {
         expect(() => {
             library.borrowBook('8325');
-        }).toThrow('The book is not found')
+        }).toThrow('The book is not found.')
     });
 });
 
@@ -91,5 +91,12 @@ describe('Library - Return Books', () => {
         expect(() => {
             library.returnBook('8324');
         }).toThrow('The book is not currently borrowed.');
+    });
+
+    // It's Verifies that A User cannot return a book that does not exists in the library
+    test('It should not allow a user to return a book that does not exists in the library', () => {
+        expect(() => {
+            library.returnBook('8325');
+        }).toThrow('The book is not found.');
     });
 });
