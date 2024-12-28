@@ -4,7 +4,7 @@ class Library {
     }
 
     addBook(book) {
-        
+        this.books.push({ ...book, available: true });
     }
 }
 
