@@ -130,5 +130,12 @@ describe('Library - View Available Books', () => {
         ]);
     });
 
+    // It's Verifies that an empty list is returned if no books are available
+    test('It should return an empty list if no books are available', () => {
+        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: 2000 });
+        library.borrowBook('8324', 'user123'); // Borrow the only book
+        const availableBooks = library.viewAvailableBooks();
+        expect(availableBooks).toEqual([]);
+    });
     
 })
