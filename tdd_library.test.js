@@ -26,4 +26,13 @@ describe('Library - Add Books', () => {
         }).toThrow('Book with these details are already exists.');
     });
 
+    // Additional Testcases:
+    // It's Verifies that User can allow to add a book with same ISBN but diffrent details
+    test('It should allow to add books with different details but same ISBN', () => {
+        library.addBook({ isbn: '8324', title: 'Book X', author: ' Author X', year: 2002});
+        library.addBook({ isbn: '8324', title: 'Book Y', author: 'Author Y', year: 2002});
+        expect(library.books).toHaveLength(2);
+    });
+
+
 });
