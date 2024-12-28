@@ -4,17 +4,14 @@ class Library {
     }
 
     addBook(book) {
-        const isduplicate = this.books.some((e) => 
-            e.isbn === book.isbn &&
-            e.title === book.title &&
-            e.author === book.author &&
-            e.year === book.year 
-        );
 
-        if (isduplicate) {
+        const { isbn, title, author, year} = book;
+
+        if (this.books.some((e) => e.isbn === isbn && e.title === title && e.author === author && e.year === year ))
+        {
             throw new Error('Book with these details are already exists.');
         }
-        
+
         this.books.push({ ...book, available: true });
     }
 }
