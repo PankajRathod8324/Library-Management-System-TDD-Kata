@@ -14,6 +14,18 @@ class Library {
 
         this.books.push({ ...book, available: true });
     }
+
+    borrowBook(isbn){
+        const book = this.books.find((e) => e.isbn === isbn);
+
+        if(!book) {
+            throw new Error('Book not found');
+        }
+        if(!book.available) {
+            throw new Error('Book is not available');
+        }
+        book.available = false;
+    }
 }
 
 export default Library;
