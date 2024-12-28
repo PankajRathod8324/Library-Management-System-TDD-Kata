@@ -121,12 +121,12 @@ describe('Library - View Available Books', () => {
 
     // It's Verifies that the library can display all available books
     test('It should display all available books', () => {
-        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: 2000 });
-        library.addBook({ isbn: '8325', title: 'Book Y', author: 'Author Y', year: 2001 });
+        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: 2000});
+        library.addBook({ isbn: '8325', title: 'Book Y', author: 'Author Y', year: 2001, borrowedBy: null});
         library.borrowBook('8324', 'user123');
         const availableBooks = library.viewAvailableBooks();
         expect(availableBooks).toEqual([
-            { isbn: '8325', title: 'Book Y', author: "Author Y", year: 2001, available: true, borrowedBy: null}
+            { isbn: '8325', title: 'Book Y', author: "Author Y", year: 2001, available: true, borrowedBy: null},
         ]);
     });
 

@@ -39,6 +39,10 @@ class Library {
         book.borrowedBy = null;
     }
 
+    viewAvailableBooks() {
+        return this.books.filter((book) => book.available);
+    }
+
     findBook(isbn) {
         const book = this.books.find((e) => e.isbn === isbn);
         if(!book) {
