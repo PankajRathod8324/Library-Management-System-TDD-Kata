@@ -19,7 +19,7 @@ class Library {
         const book = this.books.find((e) => e.isbn === isbn);
 
         if(!book) {
-            throw new Error('Book is not found');
+            throw new Error('The book is not found');
         }
         if(!book.available) {
             throw new Error('The book is not available');

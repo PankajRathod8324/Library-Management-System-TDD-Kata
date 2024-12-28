@@ -64,6 +64,6 @@ describe('Library - Borrow Books', () => {
     test('It should not allow a user to borrow a book that does not exists in the library', () => {
         expect(() => {
             library.borrowBook('8325');
-        }).toThrow('Book is not found')
+        }).toThrow('The book is not found')
     });
 });
