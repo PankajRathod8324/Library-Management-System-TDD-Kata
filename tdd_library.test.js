@@ -67,3 +67,21 @@ describe('Library - Borrow Books', () => {
         }).toThrow('The book is not found')
     });
 });
+
+// Return Books
+describe('Library - Return Books', () => {
+
+    let library;
+
+    beforeEach(() => {
+        library = new Library();
+    });
+
+    // It's Verifies that A User can return a borrowed book
+    test('It should allow a user to return a borrowed book', () => {
+        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: '2000'});
+        library.borrowBook('8324');
+        library.returnBook('8324');
+        expect(library.books[0].available).toBe(true);
+    });
+})
