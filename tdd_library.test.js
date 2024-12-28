@@ -80,8 +80,8 @@ describe('Library - Return Books', () => {
     // It's Verifies that A User can return a borrowed book
     test('It should allow a user to return a borrowed book', () => {
         library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: '2000'});
-        library.borrowBook('8324');
-        library.returnBook('8324');
+        library.borrowBook('8324', 'user123');
+        library.returnBook('8324', 'user123');
         expect(library.books[0].available).toBe(true);
     });
 
@@ -93,10 +93,19 @@ describe('Library - Return Books', () => {
         }).toThrow('The book is not currently borrowed.');
     });
 
+    // It's Verifies that a user cannot return a book they did not borrow
+    test('It should not allow a user to return a book borrowed by someone else', () => {
+        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: 2000 });
+        library.borrowBook('8324', 'user123'); 
+        expect(() => {
+            library.returnBook('8324', 'user456'); 
+        }).toThrow('You did not borrow this book.');
+    });
+
     // It's Verifies that A User cannot return a book that does not exists in the library
     test('It should not allow a user to return a book that does not exists in the library', () => {
         expect(() => {
-            library.returnBook('8325');
+            library.returnBook('8325', 'user123');
         }).toThrow('The book is not found.');
     });
 });

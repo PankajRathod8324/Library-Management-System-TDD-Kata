@@ -15,28 +15,36 @@ class Library {
         this.books.push({ ...book, available: true });
     }
 
-    borrowBook(isbn){
-        const book = this.books.find((e) => e.isbn === isbn);
+    borrowBook(isbn, userId){
+        const book = this.findBook(isbn);
 
-        if(!book) {
-            throw new Error('The book is not found.');
-        }
         if(!book.available) {
             throw new Error('The book is not available.');
         }
         book.available = false;
+        book.borrowedBy = userId;
     }
     
-    returnBook(isbn){
-        const book = this.books.find((e) => e.isbn === isbn);
+    returnBook(isbn, userId){
+        const book = this.findBook(isbn);
 
-        if(!book) {
-            throw new Error('The book is not found.');
-        }
         if(book.available) {
             throw new Error('The book is not currently borrowed.');
         }
+        
+        if(book.borrowedBy !== userId) {
+            throw new Error('You did not borrow this book.');
+        }
         book.available = true;
+        book.borrowedBy = null;
+    }
+
+    findBook(isbn) {
+        const book = this.books.find((e) => e.isbn === isbn);
+        if(!book) {
+            throw new Error('The book is not found.');
+        }
+        return book;
     }
 
 
