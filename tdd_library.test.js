@@ -29,9 +29,12 @@ describe('Library - Add Books', () => {
     // Additional Testcases:
     // It's Verifies that A User can allow to add a book with same title and author but ISBN and year are different
     test('It should allow to add books with same title and author but different ISBN and year', () => {
-        library.addBook({ isbn: '8324', title: 'Book X', author: ' Author X', year: 2002});
+        library.addBook({ isbn: '8324', title: 'Book X', author: 'Author X', year: 2002});
         library.addBook({ isbn: '8328', title: 'Book X', author: 'Author X', year: 2008});
-        expect(library.books).toHaveLength(2);
+        expect(library.books).toEqual([
+            { isbn: '8324', title: 'Book X', author: 'Author X', year: 2002, available: true},
+            { isbn: '8328', title: 'Book X', author: 'Author X', year: 2008,available: true }
+        ]);
     });
 });
 
