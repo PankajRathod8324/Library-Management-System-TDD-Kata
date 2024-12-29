@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1735450074694" clover="3.2.0">
+  <project timestamp="1735450074694" name="All files">
+    <metrics statements="22" coveredstatements="22" conditionals="14" coveredconditionals="14" methods="9" coveredmethods="9" elements="45" coveredelements="45" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+    <file name="tdd_library.js" path="D:\TDD - LMS\tdd_library.js">
+      <metrics statements="22" coveredstatements="22" conditionals="14" coveredconditionals="14" methods="9" coveredmethods="9"/>
+      <line num="3" count="14" type="stmt"/>
+      <line num="8" count="15" type="stmt"/>
+      <line num="10" count="15" type="cond" truecount="6" falsecount="0"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="15" count="14" type="stmt"/>
+      <line num="19" count="8" type="stmt"/>
+      <line num="21" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="24" count="6" type="stmt"/>
+      <line num="25" count="6" type="stmt"/>
+      <line num="29" count="4" type="stmt"/>
+      <line num="31" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="35" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="38" count="1" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="43" count="5" type="stmt"/>
+      <line num="47" count="12" type="stmt"/>
+      <line num="48" count="12" type="cond" truecount="2" falsecount="0"/>
+      <line num="49" count="2" type="stmt"/>
+      <line num="51" count="10" type="stmt"/>
+    </file>
+  </project>
+</coverage>
